@@ -21,10 +21,6 @@ grant all privileges on database universe to appuser;
 grant all on schema public to appuser;
 ```
 
-```bash
-grant all on schema public to appuser;
-```
-
 To Run the Server in Terminal
 
 ```bash

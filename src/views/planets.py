@@ -1,7 +1,7 @@
 from flask import request
 
 from ..app import app
-from .controllers import list_all_planets_controller
+from ..controllers.planets import list_all_planets_controller
 
 
 @app.route("/planets", methods=['GET', 'POST'])
