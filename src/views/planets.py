@@ -21,7 +21,7 @@ def list_create_planets():
 
 
 @app.route("/planets/<id>", methods=['GET', 'PUT', 'DELETE'])
-def retrieve_update_destroy_accounts(id):
+def retrieve_update_destroy_planets(id):
     if request.method == 'GET':
         return get_planet_controller(id)
     if request.method == 'PUT':
