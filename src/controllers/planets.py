@@ -16,7 +16,6 @@ def create_planet_controller():
         mass=request_form['mass'],
         volume=request_form['volume'],
         temperature=request_form['temperature'],
-        satellites=request_form['satellites'],
         image=request_form['image'],
     )
     db.session.add(new_planet)
@@ -35,7 +34,6 @@ def update_planet_controller(id):
     planet.mass = request_form['mass'],
     planet.volume = request_form['volume'],
     planet.temperature = request_form['temperature'],
-    planet.satellites = request_form['satellites'],
     planet.image = request_form['image'],
     db.session.commit()
 
