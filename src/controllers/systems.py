@@ -3,6 +3,8 @@ import uuid
 
 from .. import db
 from ..models.systems import System
+from ..models.stars import Star
+from ..models.planets import Planet
 
 
 def check_system_name(name):
@@ -61,6 +63,8 @@ def delete_system_controller(id):
     system = System.query.get(id)
     if system is None:
         return jsonify({"message": f"System {id} not found!"}), 404
+    Planet.query.filter_by(system_id=id).delete()
+    Star.query.filter_by(system_id=id).delete()
     System.query.filter_by(id=id).delete()
     db.session.commit()
     return jsonify({"message": f"System {id} deleted successfully!"}), 200
