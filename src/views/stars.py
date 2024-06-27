@@ -4,7 +4,6 @@ from ..app import app
 from ..controllers.stars import (
   list_all_stars_controller,
   get_star_controller,
-  create_star_controller,
   update_star_controller,
   delete_star_controller
 )
@@ -14,8 +13,6 @@ from ..controllers.stars import (
 def list_create_stars():
     if request.method == 'GET':
         return list_all_stars_controller()
-    if request.method == 'POST':
-        return create_star_controller()
     else:
         return 'Method is Not Allowed'
 

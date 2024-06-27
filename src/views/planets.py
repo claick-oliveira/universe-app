@@ -4,7 +4,6 @@ from ..app import app
 from ..controllers.planets import (
   list_all_planets_controller,
   get_planet_controller,
-  create_planet_controller,
   update_planet_controller,
   delete_planet_controller
 )
@@ -14,8 +13,6 @@ from ..controllers.planets import (
 def list_create_planets():
     if request.method == 'GET':
         return list_all_planets_controller()
-    if request.method == 'POST':
-        return create_planet_controller()
     else:
         return 'Method is Not Allowed'
 

@@ -5,25 +5,19 @@ from .. import db
 
 
 @dataclass
-class Planet(db.Model):
-    __tablename__ = "planets"
+class System(db.Model):
+    __tablename__ = "systems"
     id = db.Column(db.String, primary_key=True, nullable=False, unique=True)
     name = db.Column(db.String, unique=True, nullable=False)
-    description = db.Column(db.String)
-    type = db.Column(db.String)
-    mass = db.Column(db.String)
-    volume = db.Column(db.String)
-    temperature = db.Column(db.String)
     created_at = db.Column(db.DateTime, default=datetime.now)
     updated_at = db.Column(
         db.DateTime,
         default=datetime.now,
         onupdate=datetime.now
     )
-    image = db.Column(db.String)
-
     # Relationship
-    system_id = db.Column(db.String, db.ForeignKey("systems.id"))
+    star = db.relationship("Star", backref="system", uselist=False)
+    planets = db.relationship("Planet", backref="system")
 
     def toDict(self):
         return {
@@ -32,4 +26,4 @@ class Planet(db.Model):
         }
 
     def __repr__(self):
-        return f"<Planet {self.name}>"
+        return f"<System {self.name}>"

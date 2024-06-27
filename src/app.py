@@ -17,8 +17,9 @@ def page_not_found(e):
 
 
 # Applications Routes
-from .views import planets  # noqa: F401, E402
+from .views import systems  # noqa: F401, E402
 from .views import stars  # noqa: F401, E402
+from .views import planets  # noqa: F401, E402
 
 
 if __name__ == "__main__":

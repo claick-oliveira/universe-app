@@ -12,6 +12,9 @@ def create_app(config_mode):
     app.config.from_object(config[config_mode])
 
     db.init_app(app)
+
+    from .models import planets, stars, systems  # noqa: F401
+
     migrate.init_app(app, db)
 
     return app

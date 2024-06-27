@@ -38,3 +38,8 @@ To Run the Server with Automatic Restart When Changes Occur
 ```bash
 FLASK_DEBUG=1 flask run
 ```
+
+```bash
+python -m pip uninstall flask-sqlalchemy
+python -m pip install flask-sqlalchemy
+```

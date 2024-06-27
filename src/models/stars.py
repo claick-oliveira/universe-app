@@ -21,6 +21,9 @@ class Star(db.Model):
     )
     image = db.Column(db.String)
 
+    # Relationship
+    system_id = db.Column(db.String, db.ForeignKey("systems.id"), unique=True)
+
     def toDict(self):
         return {
             c.key: getattr(self, c.key)
